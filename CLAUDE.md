@@ -18,11 +18,25 @@ Anyone on the internet can read every file and every past commit. Only commit th
 |------|------|
 | `index.html` | The whole site: HTML, CSS (in `<style>`) and JS (in `<script>`). No build step, no framework. |
 | `assets/` | Images. Reference them with absolute paths (`/assets/hero.jpg`). |
+| `README.md` | Karen's setup and how-to guide (for her, not for visitors). |
+| `.claude/` | Project settings (permissions) and the `/preview`, `/publish`, `/undo` skills. |
+| `.vercelignore` | Keeps `CLAUDE.md`, `README.md`, and `.claude/` off the live site. Add any other non-site file here too. |
 | `robots.txt` | Crawler policy. The site is deliberately open to all crawlers, AI crawlers included, because we sell AI visibility. Don't block anything unless Karen asks you to. |
+
+## Who you're working with
+
+Karen is new to Claude Code, the terminal, and git. Speak plainly: say what you're about to do and why, in one sentence, before you do it. Don't make her type git commands; the shortcuts below handle that. When something fails, say what it means for the live site ("nothing changed on the live site") before any technical detail.
+
+**At the start of every session**, run `git pull origin main` so you're working on the latest version.
 
 ## Deploying
 
-The repo is git-linked to the Vercel project `landing-page-2`.
+The repo is git-linked to the Vercel project `model-behavior-www`.
+
+Karen uses three shortcuts (in `.claude/skills/`). Use them whenever she asks for any of these, even in plain words:
+- `/preview`: commits to a branch and gets her a private preview link. The live site doesn't change.
+- `/publish`: puts the work live (push to `main`) and confirms it's actually live.
+- `/undo`: reverts the last published change with `git revert`. Never force-push or reset.
 
 - **Push to `main` → live on www.getmodelbehavior.ai within a minute or so.** There's no staging.
 - **To preview without going live:** push a branch. Vercel builds a preview URL for every branch and posts it on the commit / PR.

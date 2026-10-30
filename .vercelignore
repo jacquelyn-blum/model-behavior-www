@@ -1,0 +1,4 @@
+# Repo files that must not be served on the live site
+CLAUDE.md
+README.md
+.claude
